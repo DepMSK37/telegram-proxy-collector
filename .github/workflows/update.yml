@@ -1,46 +1,48 @@
-name: Update Proxy List
+name: Update Verified Proxy Lists
 
 on:
   schedule:
     - cron: '0 */4 * * *'  # Каждые 4 часа
-  workflow_dispatch:      # Ручной запуск
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  collect-verified:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
-
-    - name: Set up Python
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
-
+        python-version: '3.11'
+    
     - name: Install dependencies
+      run: pip install requests telethon
+    
+    - name: Configure Telethon API
       run: |
-        pip install requests
-
-    - name: Run scraper script
-      run: python main.py
-
-    - name: Commit and push changes
+        echo "API_ID=${{ secrets.API_ID }}" >> $GITHUB_ENV
+        echo "API_HASH=${{ secrets.API_HASH }}" >> $GITHUB_ENV
+    
+    - name: Run Advanced Collector
+      env:
+        API_ID: ${{ secrets.API_ID }}
+        API_HASH: ${{ secrets.API_HASH }}
+      run: python main_advanced.py --top 200
+    
+    - name: Commit verified proxies
       run: |
-        git config --global user.name 'GitHub Actions'
-        git config --global user.email 'actions@github.com'
-        
-        # Добавляем только существующие файлы
-        git add proxy_ru.txt proxy_eu.txt proxy_all.txt
-        
-        # Если старый файл существует в репозитории, удаляем его
-        if [ -f "proxy_list.txt" ]; then
-          git rm proxy_list.txt || true
+        git config user.name "Proxy Collector Bot"
+        git config user.email "bot@github.com"
+        git add verified/
+        if git diff --staged --quiet; then
+          echo "No changes"
+        else
+          git commit -m "🔥 Verified proxies: $(ls -l verified/proxy_ru_verified.txt | awk '{print $5}') RU | $(ls -l verified/proxy_eu_verified.txt | awk '{print $5}') EU"
+          git push
         fi
-        
-        # Коммитим только если есть изменения
-        git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Auto-update: RU/EU proxy lists $(date +'%Y-%m-%d %H:%M UTC')" && git push)
+
 
