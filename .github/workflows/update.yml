@@ -1,48 +1,24 @@
 name: Update Verified Proxy Lists
-
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Каждые 4 часа
+    - cron: '0 */4 * * *'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
-  collect-verified:
+  collect:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v4
+    - uses: actions/setup-python@v4
       with:
         python-version: '3.11'
-    
-    - name: Install dependencies
-      run: pip install requests telethon
-    
-    - name: Configure Telethon API
-      run: |
-        echo "API_ID=${{ secrets.API_ID }}" >> $GITHUB_ENV
-        echo "API_HASH=${{ secrets.API_HASH }}" >> $GITHUB_ENV
-    
-    - name: Run Advanced Collector
-      env:
-        API_ID: ${{ secrets.API_ID }}
-        API_HASH: ${{ secrets.API_HASH }}
-      run: python main_advanced.py --top 200
-    
-    - name: Commit verified proxies
-      run: |
-        git config user.name "Proxy Collector Bot"
+    - run: pip install requests telethon
+    - run: python main.py --top 200  # ← main.py!
+    - run: |
+        git config user.name "Proxy Bot"
         git config user.email "bot@github.com"
-        git add verified/
-        if git diff --staged --quiet; then
-          echo "No changes"
-        else
-          git commit -m "🔥 Verified proxies: $(ls -l verified/proxy_ru_verified.txt | awk '{print $5}') RU | $(ls -l verified/proxy_eu_verified.txt | awk '{print $5}') EU"
-          git push
-        fi
+        git add verified/ || true
+        git diff --staged --quiet || git commit -m "🔥 Verified proxies $(date)"
+        git push || true
 
 
