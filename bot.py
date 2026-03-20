@@ -11,9 +11,8 @@ from aiogram.filters import CommandStart
 from aiogram.enums import ParseMode
 from aiogram.client.session.aiohttp import AiohttpSession
 
-# ─────────────────────── конфиг ───────────────────────
 BOT_TOKEN = environ["BOT_TOKEN"]
-BOT_PROXY = environ["BOT_PROXY"]  # socks5://login:password@host:port
+BOT_PROXY = environ["BOT_PROXY"]
 
 VERIFIED_DIR    = Path("verified")
 RATE_LIMIT_FILE = Path("rate_limit.json")
@@ -34,17 +33,12 @@ REGION_LABELS = {
     "all": "🌐 Все регионы",
 }
 
-# ─────────────────────── инициализация ────────────────
-# Прокси только для связи бота с api.telegram.org
-# main.py работает напрямую с RU IP — без прокси
 session = AiohttpSession(proxy=BOT_PROXY)
 bot = Bot(token=BOT_TOKEN, session=session)
 dp  = Dispatcher()
 
 _collector_running = False
 
-
-# ─────────────────────── rate limit ───────────────────
 
 def _load_limits() -> dict:
     if RATE_LIMIT_FILE.exists():
@@ -74,8 +68,6 @@ def set_cooldown(user_id: int) -> None:
     limits[str(user_id)] = time.time()
     _save_limits(limits)
 
-
-# ─────────────────────── работа с файлами ─────────────
 
 def cache_age_seconds(region: str) -> float | None:
     path = PROXY_FILES.get(region)
@@ -112,8 +104,6 @@ def split_by_length(lines: list[str], max_len: int = MAX_MSG_LEN) -> list[str]:
     return chunks
 
 
-# ─────────────────────── коллектор ────────────────────
-
 async def run_collector() -> bool:
     global _collector_running
     if _collector_running:
@@ -133,8 +123,6 @@ async def run_collector() -> bool:
         _collector_running = False
 
 
-# ─────────────────────── клавиатуры ───────────────────
-
 def main_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
         [
@@ -146,8 +134,6 @@ def main_keyboard() -> InlineKeyboardMarkup:
         ],
     ])
 
-
-# ─────────────────────── хендлеры ─────────────────────
 
 @dp.message(CommandStart())
 async def cmd_start(message: Message) -> None:
@@ -209,8 +195,6 @@ async def handle_proxy_request(call: CallbackQuery) -> None:
         asyncio.create_task(run_collector())
 
 
-# ─────────────────────── отправка прокси ──────────────
-
 async def _send_proxies(
     message: Message,
     proxies: list[str],
@@ -238,8 +222,6 @@ async def _send_proxies(
         reply_markup=main_keyboard(),
     )
 
-
-# ─────────────────────── запуск ───────────────────────
 
 async def main() -> None:
     VERIFIED_DIR.mkdir(exist_ok=True)
