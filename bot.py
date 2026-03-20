@@ -17,8 +17,8 @@ BOT_PROXY = environ["BOT_PROXY"]
 VERIFIED_DIR    = Path("verified")
 RATE_LIMIT_FILE = Path("rate_limit.json")
 
-CACHE_TTL     = 4 * 3600
-USER_COOLDOWN = 4 * 3600
+CACHE_TTL     = 1 * 3600
+USER_COOLDOWN = 1 * 3600
 MAX_MSG_LEN   = 4096
 
 PROXY_FILES = {
