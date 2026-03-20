@@ -1,24 +1,28 @@
 import asyncio
 import json
 import os
+import ssl
 import time
 from pathlib import Path
 from os import environ
 
+import certifi
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import CommandStart
 from aiogram.enums import ParseMode
+from aiogram.client.session.aiohttp import AiohttpSession
 
 # ─────────────────────── конфиг ───────────────────────
 BOT_TOKEN = environ["BOT_TOKEN"]
+BOT_PROXY = environ.get("BOT_PROXY")  # опционально: socks5://host:port
 
-VERIFIED_DIR   = Path("verified")
+VERIFIED_DIR    = Path("verified")
 RATE_LIMIT_FILE = Path("rate_limit.json")
 
-CACHE_TTL      = 4 * 3600   # 4 часа — свежесть кеша
-USER_COOLDOWN  = 4 * 3600   # 4 часа — кулдаун пользователя
-MAX_MSG_LEN    = 4096        # лимит Telegram
+CACHE_TTL     = 4 * 3600
+USER_COOLDOWN = 4 * 3600
+MAX_MSG_LEN   = 4096
 
 PROXY_FILES = {
     "eu":  VERIFIED_DIR / "proxy_eu_verified.txt",
@@ -33,10 +37,12 @@ REGION_LABELS = {
 }
 
 # ─────────────────────── инициализация ────────────────
-bot = Bot(token=BOT_TOKEN)
+# Явный SSL-контекст через certifi — решает ssl:default [None] на некоторых хостингах
+ssl_context = ssl.create_default_context(cafile=certifi.where())
+session = AiohttpSession(proxy=BOT_PROXY, connector_init={"ssl": ssl_context})
+bot = Bot(token=BOT_TOKEN, session=session)
 dp  = Dispatcher()
 
-# Флаг — чтобы main.py не запускался одновременно в нескольких задачах
 _collector_running = False
 
 
@@ -56,7 +62,6 @@ def _save_limits(data: dict) -> None:
 
 
 def check_cooldown(user_id: int) -> int | None:
-    """Возвращает секунды до конца кулдауна, или None если можно запрашивать."""
     limits = _load_limits()
     uid = str(user_id)
     if uid in limits:
@@ -75,7 +80,6 @@ def set_cooldown(user_id: int) -> None:
 # ─────────────────────── работа с файлами ─────────────
 
 def cache_age_seconds(region: str) -> float | None:
-    """Возраст файла в секундах, или None если файл не существует."""
     path = PROXY_FILES.get(region)
     if path and path.exists():
         return time.time() - path.stat().st_mtime
@@ -83,7 +87,6 @@ def cache_age_seconds(region: str) -> float | None:
 
 
 def read_proxy_lines(region: str) -> list[str]:
-    """Читает строки с прокси, пропуская комментарии и пустые строки."""
     path = PROXY_FILES.get(region)
     if not path or not path.exists():
         return []
@@ -95,30 +98,25 @@ def read_proxy_lines(region: str) -> list[str]:
 
 
 def split_by_length(lines: list[str], max_len: int = MAX_MSG_LEN) -> list[str]:
-    """Разбивает список строк на чанки, не превышающие max_len символов."""
     chunks: list[str] = []
     current: list[str] = []
     current_len = 0
-
     for line in lines:
-        needed = len(line) + (1 if current else 0)  # +1 на \n между строками
+        needed = len(line) + (1 if current else 0)
         if current and current_len + needed > max_len:
             chunks.append("\n".join(current))
             current = []
             current_len = 0
         current.append(line)
         current_len += needed
-
     if current:
         chunks.append("\n".join(current))
-
     return chunks
 
 
 # ─────────────────────── коллектор ────────────────────
 
 async def run_collector() -> bool:
-    """Запускает main.py в фоне. Возвращает True если успешно."""
     global _collector_running
     if _collector_running:
         return False
@@ -142,11 +140,11 @@ async def run_collector() -> bool:
 def main_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
         [
-            InlineKeyboardButton(text="🌍 EU прокси",      callback_data="proxy_eu"),
-            InlineKeyboardButton(text="🇷🇺 RU прокси",     callback_data="proxy_ru"),
+            InlineKeyboardButton(text="🌍 EU прокси",  callback_data="proxy_eu"),
+            InlineKeyboardButton(text="🇷🇺 RU прокси", callback_data="proxy_ru"),
         ],
         [
-            InlineKeyboardButton(text="🌐 Все прокси",     callback_data="proxy_all"),
+            InlineKeyboardButton(text="🌐 Все прокси", callback_data="proxy_all"),
         ],
     ])
 
@@ -167,11 +165,10 @@ async def cmd_start(message: Message) -> None:
 
 @dp.callback_query(F.data.in_({"proxy_eu", "proxy_ru", "proxy_all"}))
 async def handle_proxy_request(call: CallbackQuery) -> None:
-    region  = call.data.removeprefix("proxy_")   # "eu" / "ru" / "all"
+    region  = call.data.removeprefix("proxy_")
     user_id = call.from_user.id
     label   = REGION_LABELS[region]
 
-    # ── проверка кулдауна ─────────────────────────────
     remaining = check_cooldown(user_id)
     if remaining is not None:
         h = remaining // 3600
@@ -189,11 +186,9 @@ async def handle_proxy_request(call: CallbackQuery) -> None:
     proxies = read_proxy_lines(region)
     stale   = (age is not None) and (age > CACHE_TTL)
 
-    # ── нет кеша вообще — ждём коллектор ─────────────
     if not proxies:
         wait = await call.message.answer(
-            "⏳ <b>База пустая</b>, собираю прокси (~2–3 мин)...\n"
-            "Пожалуйста, подожди.",
+            "⏳ <b>База пустая</b>, собираю прокси (~2–3 мин)...\nПожалуйста, подожди.",
             parse_mode=ParseMode.HTML,
         )
         await run_collector()
@@ -210,10 +205,8 @@ async def handle_proxy_request(call: CallbackQuery) -> None:
         await _send_proxies(call.message, proxies, label, stale=False)
         return
 
-    # ── кеш есть (свежий или устаревший) — отдаём сразу ─
     await _send_proxies(call.message, proxies, label, stale=stale)
 
-    # ── устаревший кеш — тихо обновляем в фоне ───────
     if stale and not _collector_running:
         asyncio.create_task(run_collector())
 
@@ -229,7 +222,6 @@ async def _send_proxies(
     count  = len(proxies)
     chunks = split_by_length(proxies)
 
-    # Шапка — с HTML-разметкой
     stale_note = (
         "\n⚠️ <i>Данные устарели (&gt;4ч) — фоново обновляю базу</i>"
         if stale else ""
@@ -240,11 +232,9 @@ async def _send_proxies(
         parse_mode=ParseMode.HTML,
     )
 
-    # Сами прокси — plain text, чтобы tg:// ссылки были кликабельны
     for chunk in chunks:
         await message.answer(chunk)
 
-    # Подвал с кнопками
     await message.answer(
         "✅ Готово! Если прокси не работает — попробуй следующий.",
         reply_markup=main_keyboard(),
