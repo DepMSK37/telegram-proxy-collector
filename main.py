@@ -31,7 +31,7 @@ SOURCES = [
     "https://mtpro.xyz/api/?type=mtproto-ru",
 ]
 
-TIMEOUT     = 2.0
+TIMEOUT     = 0.5
 MAX_WORKERS = 100
 
 RU_DOMAINS = [
