@@ -9,12 +9,14 @@ from aiogram import Bot, Dispatcher, F, types
 from aiogram.filters import Command
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, LinkPreviewOptions
 
-# Токен бота берется из файла .env (переменные окружения)
+# Подгружаем переменные окружения
 load_dotenv()
-BOT_TOKEN = os.getenv("BOT_TOKEN", "укажи_токен_в_env")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 
-if BOT_TOKEN == "укажи_токен_в_env":
-    print("ВНИМАНИЕ: Токен бота не найден! Проверьте файл .env")
+# Жесткая валидация токена до старта приложения
+if not BOT_TOKEN or BOT_TOKEN == "укажи_токен_в_env":
+    print("❌ КРИТИЧЕСКАЯ ОШИБКА: Токен бота не найден или некорректен! Проверьте файл .env")
+    sys.exit(1) # Завершаем процесс, чтобы не было крашей aiogram
 
 # Настройки кэширования и лимитов
 CACHE_TIME_SECONDS = 4 * 3600  # 4 часа (свежесть базы прокси)
@@ -23,8 +25,8 @@ USER_COOLDOWN_SECONDS = 4 * 3600  # 4 часа (кулдаун для польз
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
-# Блокировка для предотвращения параллельного запуска main.py
-parsing_lock = asyncio.Lock()
+# Объявляем переменную, но сам Lock создадим внутри цикла событий в main()
+parsing_lock: asyncio.Lock | None = None
 
 # Файл для сохранения времени последних запросов от пользователей
 COOLDOWN_FILE = "user_cooldowns.json"
@@ -42,10 +44,12 @@ def save_cooldowns(data: dict):
     with open(COOLDOWN_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f)
 
-# Клавиатура выбора региона
+# Добавлены все кнопки согласно заложенной логике
 def get_main_keyboard():
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🇪🇺 Получить прокси", callback_data="get_proxy_eu")]
+        [InlineKeyboardButton(text="🇪🇺 EU Прокси", callback_data="get_proxy_eu")],
+        [InlineKeyboardButton(text="🇷🇺 RU Прокси", callback_data="get_proxy_ru")],
+        [InlineKeyboardButton(text="🌍 Все прокси", callback_data="get_proxy_all")]
     ])
 
 @dp.message(Command("start"))
@@ -58,7 +62,7 @@ async def cmd_start(message: types.Message):
     )
 
 async def check_user_cooldown(user_id: int) -> tuple[bool, str]:
-    """Проверяет, прошло ли 6 часов с момента последнего запроса."""
+    """Проверяет, прошло ли 4 часа с момента последнего запроса."""
     cooldowns = load_cooldowns()
     last_request_time = cooldowns.get(user_id, 0)
     current_time = time.time()
@@ -104,13 +108,14 @@ async def send_long_text(message: types.Message, file_path: str):
     if chunk.strip():
         await message.answer(chunk, link_preview_options=LinkPreviewOptions(is_disabled=True))
 
-async def update_proxies_if_needed(message: types.Message) -> bool:
-    """Запускает парсер, если прокси старше заданного кэша. Возвращает True в случае успеха."""
-    file_path = "verified/proxy_all_verified.txt"
+async def update_proxies_if_needed(message: types.Message, region_file: str) -> bool:
+    """Запускает парсер, если конкретный файл региона старше кэша или отсутствует."""
+    global parsing_lock
     need_parse = True
     
-    if os.path.exists(file_path):
-        mtime = os.path.getmtime(file_path)
+    # Теперь проверяем время изменения именно запрошенного файла
+    if os.path.exists(region_file):
+        mtime = os.path.getmtime(region_file)
         if time.time() - mtime < CACHE_TIME_SECONDS:
             need_parse = False
             
@@ -148,30 +153,34 @@ async def process_get_proxy(callback: types.CallbackQuery):
         
     await callback.answer() # Убираем "часики" спиннера с кнопки
     
-    if isinstance(callback.message, types.Message):
-        success = await update_proxies_if_needed(callback.message)
-        if not success:
-            return
-    else:
-        return
-        
     file_map = {
         "eu": "verified/proxy_eu_verified.txt",
         "ru": "verified/proxy_ru_verified.txt",
         "all": "verified/proxy_all_verified.txt"
     }
     target_file = file_map.get(region)
+    
     if not target_file:
-        await callback.message.answer("❌ Неизвестный регион.")
+        if isinstance(callback.message, types.Message):
+            await callback.message.answer("❌ Неизвестный регион.")
         return
     
     if isinstance(callback.message, types.Message):
+        # Передаем конкретный путь к файлу для проверки кэша
+        success = await update_proxies_if_needed(callback.message, target_file)
+        if not success:
+            return
+            
         await callback.message.answer("🚀 Держи твой список прокси! Просто нажимай на ссылки:")
         await send_long_text(callback.message, target_file)
     
     await update_user_cooldown(user_id)
 
 async def main():
+    global parsing_lock
+    # Инициализируем блокировку ТОЛЬКО внутри запущенного цикла событий
+    parsing_lock = asyncio.Lock()
+    
     print("🤖 Бот запущен! Ожидаю сообщений...")
     await dp.start_polling(bot)
 
