@@ -1,17 +1,21 @@
 import asyncio
 import json
 import os
+import ssl
 import time
 from pathlib import Path
 from os import environ
 
+import certifi
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import CommandStart
 from aiogram.enums import ParseMode
+from aiogram.client.session.aiohttp import AiohttpSession
 
 # ─────────────────────── конфиг ───────────────────────
 BOT_TOKEN = environ["BOT_TOKEN"]
+BOT_PROXY = environ["BOT_PROXY"]  # socks5://login:password@host:port
 
 VERIFIED_DIR    = Path("verified")
 RATE_LIMIT_FILE = Path("rate_limit.json")
@@ -33,7 +37,11 @@ REGION_LABELS = {
 }
 
 # ─────────────────────── инициализация ────────────────
-bot = Bot(token=BOT_TOKEN)
+# Прокси нужен только для связи бота с api.telegram.org
+# main.py работает напрямую с RU IP — без прокси
+ssl_context = ssl.create_default_context(cafile=certifi.where())
+session = AiohttpSession(proxy=BOT_PROXY, connector_init={"ssl": ssl_context})
+bot = Bot(token=BOT_TOKEN, session=session)
 dp  = Dispatcher()
 
 _collector_running = False
