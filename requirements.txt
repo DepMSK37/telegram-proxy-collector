@@ -1,0 +1,4 @@
+aiogram>=3.4.0
+telethon>=1.33.0
+requests>=2.31.0
+python-dotenv>=1.0.0
