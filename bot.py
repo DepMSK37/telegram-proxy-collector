@@ -1,12 +1,10 @@
 import asyncio
 import json
 import os
-import ssl
 import time
 from pathlib import Path
 from os import environ
 
-import certifi
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import CommandStart
@@ -37,10 +35,9 @@ REGION_LABELS = {
 }
 
 # ─────────────────────── инициализация ────────────────
-# Прокси нужен только для связи бота с api.telegram.org
+# Прокси только для связи бота с api.telegram.org
 # main.py работает напрямую с RU IP — без прокси
-ssl_context = ssl.create_default_context(cafile=certifi.where())
-session = AiohttpSession(proxy=BOT_PROXY, connector_init={"ssl": ssl_context})
+session = AiohttpSession(proxy=BOT_PROXY)
 bot = Bot(token=BOT_TOKEN, session=session)
 dp  = Dispatcher()
 
