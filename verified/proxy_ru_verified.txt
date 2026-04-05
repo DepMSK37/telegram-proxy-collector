@@ -1,8 +1,7 @@
-# Verified RU Proxies (3)
-# Updated: 2026-04-05 12:32:56 UTC
+# Verified RU Proxies (2)
+# Updated: 2026-04-05 16:24:46 UTC
 # Method: TCP_OK
-# Best ping: 0.145s
+# Best ping: 0.228s
 
-tg://proxy?server=jtproxy.life&port=443&secret=eef0050d30441bab41f60acae779df0c40766473696e612e7275
 tg://proxy?server=138.124.254.125&port=443&secret=ee470cb2b8b29aeadfbdf8a2f7bee5ca3b62726f777365722e79616e6465782e636f6d
-tg://proxy?server=o6xodum.duckdns.org&port=1488&secret=ee494c3d5858be223fcbb9970d8bf05a036d6f746f76736b696b682e7275
+tg://proxy?server=jtproxy.life&port=443&secret=eef0050d30441bab41f60acae779df0c40766473696e612e7275
