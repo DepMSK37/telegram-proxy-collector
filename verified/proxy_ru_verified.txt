@@ -1,7 +1,6 @@
-# Verified RU Proxies (2)
-# Updated: 2026-04-05 20:20:50 UTC
+# Verified RU Proxies (1)
+# Updated: 2026-04-06 01:21:50 UTC
 # Method: TCP_OK
-# Best ping: 0.123s
+# Best ping: 0.15s
 
 tg://proxy?server=jtproxy.life&port=443&secret=eef0050d30441bab41f60acae779df0c40766473696e612e7275
-tg://proxy?server=138.124.254.125&port=443&secret=ee470cb2b8b29aeadfbdf8a2f7bee5ca3b62726f777365722e79616e6465782e636f6d
