@@ -1,14 +1,12 @@
-# Verified RU Proxies (9)
-# Updated: 2026-04-08 01:20:27 UTC
+# Verified RU Proxies (7)
+# Updated: 2026-04-08 05:42:44 UTC
 # Method: TCP_OK
-# Best ping: 0.17s
+# Best ping: 0.112s
 
+tg://proxy?server=zero.proxyprosto.sbs&port=443&secret=ee79612e7275959e10efcec1fd4ef73b
 tg://proxy?server=91.186.216.239&port=8443&secret=eeb359972f13e568d2e15bc826257028d56d61782e7275
-tg://proxy?server=s4.neo-trading.org&port=443&secret=ee181e2ad5e63c27262781187f2dedc4bb79612e7275
 tg://proxy?server=158.160.232.216&port=443&secret=ee79612e727537ff352dabe2604c3fe5
-tg://proxy?server=laura.proxyprosto.sbs&port=443&secret=ee79612e7275dcdfd8017f6ee7c1beb0
-tg://proxy?server=charlie.freetelega.me&port=8443&secret=eec2eec77016252e334767f27d5b208fb27265672e7275
+tg://proxy?server=178.187.172.93&port=7997&secret=ee4c670831e7ee84c7c3a287a2184181d8626979736b32322e7275
 tg://proxy?server=FAST.tgsecurity.online&port=443&secret=ee7c5d4e1f2a3b9c8d7e6f5a4b3c2d1e0f766b2e636f6d
-tg://proxy?server=84.201.169.90&port=443&secret=ee387cc39e6784d06b17cc32354e92bfe66164732e78352e7275
-tg://proxy?server=s3.neo-trading.org&port=443&secret=eec3fefd89a25d37ca3af1a602c7bfd8de79612e7275
+tg://proxy?server=laura.proxyprosto.sbs&port=443&secret=ee79612e7275dcdfd8017f6ee7c1beb0
 tg://proxy?server=tspico.siblin.org&port=443&secret=eeb4a93852bf9d5d3ebb93e435e13a2c85626979736b32322e7275
