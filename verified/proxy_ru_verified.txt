@@ -1,6 +1,6 @@
 # Verified RU Proxies (1)
-# Updated: 2026-05-05 06:09:27 UTC
+# Updated: 2026-05-05 09:51:59 UTC
 # Method: TCP_OK
-# Best ping: 0.205s
+# Best ping: 0.229s
 
 tg://proxy?server=connect.tproxyru.click&port=8980&secret=ee104462821249bd7ac519130220c25d09617669746f2e7275
