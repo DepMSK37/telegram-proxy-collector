@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-05-07T17:40:14.526320",
+  "timestamp_utc": "2026-05-07T20:56:35.622516",
   "total_raw": 132,
   "total_verified": 38,
   "ru_count": 0,
@@ -7,7 +7,7 @@
   "telethon_used": false,
   "best_ru_ping": null,
   "best_eu_ping": 0.018,
-  "execution_time": 11.2,
+  "execution_time": 11.5,
   "sources_count": 6,
   "workers": 100
 }
