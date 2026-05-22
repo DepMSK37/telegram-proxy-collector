@@ -1,9 +1,11 @@
-# Verified RU Proxies (4)
-# Updated: 2026-05-22 10:41:11 UTC
+# Verified RU Proxies (6)
+# Updated: 2026-05-22 14:13:23 UTC
 # Method: TCP_OK
-# Best ping: 0.09s
+# Best ping: 0.143s
 
-tg://proxy?server=78.17.71.42&port=443&secret=eeec75b855ebcc01c982f3e013af8ed92a7777772e79616e6465782e7275
 tg://proxy?server=132.243.213.215&port=443&secret=ee46f33d84ae85e3ad53567904d7199be7706574726f766963682e7275
-tg://proxy?server=artt.proxytg.space&port=443&secret=ee859265446d8bb72e53291612281d57e26d61782e7275
+tg://proxy?server=78.17.71.42&port=443&secret=eeec75b855ebcc01c982f3e013af8ed92a7777772e79616e6465782e7275
+tg://proxy?server=hop2.proxytg.space&port=443&secret=eec5428740a808240ccf21f21547fc843f6d61782e7275
+tg://proxy?server=hop3.proxytg.space&port=443&secret=ee8e8e148190ecbc4cda5090ec52e9613e6d61782e7275
 tg://proxy?server=menf.proxytg.space&port=443&secret=eed29c1cae809aca8bdbf6ce5c5918141c6d61782e7275
+tg://proxy?server=artt.proxytg.space&port=443&secret=ee859265446d8bb72e53291612281d57e26d61782e7275
