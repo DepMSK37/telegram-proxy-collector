@@ -1,3 +1,6 @@
-# Verified RU Proxies (0)
-# Updated: 2026-06-09 07:36:31 UTC
+# Verified RU Proxies (1)
+# Updated: 2026-06-09 10:50:54 UTC
+# Method: TCP_OK
+# Best ping: 0.2s
 
+tg://proxy?server=goal.chunkycorp.shop&port=443&secret=ee6a0333c1db3f8eaba5c76731a44203b6617669746f2e7275
