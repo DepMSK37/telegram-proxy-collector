@@ -1,3 +1,7 @@
-# Verified RU Proxies (0)
-# Updated: 2026-06-10 14:50:35 UTC
+# Verified RU Proxies (2)
+# Updated: 2026-06-10 18:23:38 UTC
+# Method: TCP_OK
+# Best ping: 0.183s
 
+tg://proxy?server=ge.nowabst.net&port=853&secret=eefdf6175e50069c01bd22d786534aa2b26164732e78352e7275
+tg://proxy?server=15.chunkycorp.shop&port=443&secret=ee6a0333c1db3f8eaba5c76731a44203b6617669746f2e7275
