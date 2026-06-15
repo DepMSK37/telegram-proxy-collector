@@ -1,14 +1,3 @@
-# Verified RU Proxies (9)
-# Updated: 2026-06-15 02:39:06 UTC
-# Method: TCP_OK
-# Best ping: 0.098s
+# Verified RU Proxies (0)
+# Updated: 2026-06-15 09:51:00 UTC
 
-tg://proxy?server=ge.nowabst.net&port=853&secret=eefdf6175e50069c01bd22d786534aa2b26164732e78352e7275
-tg://proxy?server=node.nowabst.net&port=853&secret=eef17eaf287401413739814ccc05a709a66164732e78352e7275
-tg://proxy?server=relay.nowabst.net&port=853&secret=ee19f4ad26c65891fd22cf3b7a59f0d1036164732e78352e7275
-tg://proxy?server=gw.nowabst.net&port=853&secret=ee6104d5fd936c4930978f0227166deaa96164732e78352e7275
-tg://proxy?server=tg.nowabst.net&port=853&secret=eebfbfb8093b088269716ea5262d483e1d6164732e78352e7275
-tg://proxy?server=proxy18.arixo.shop&port=443&secret=ee819b4efa2397a9470682aae92babee31617669746f2e7275
-tg://proxy?server=mtp.nowabst.net&port=853&secret=ee82ce1f84af4033cc7e7b021069be3d5b6164732e78352e7275
-tg://proxy?server=proxy19.arixo.shop&port=443&secret=ee6563f5614f0abb0d62d219083ab9f658617669746f2e7275
-tg://proxy?server=hub.nowabst.net&port=853&secret=ee55aabc9752a9d9d379e02943cf8117956164732e78352e7275
