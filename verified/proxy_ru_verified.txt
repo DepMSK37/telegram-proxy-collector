@@ -1,7 +1,6 @@
-# Verified RU Proxies (2)
-# Updated: 2026-06-16 09:15:12 UTC
+# Verified RU Proxies (1)
+# Updated: 2026-06-16 16:21:08 UTC
 # Method: TCP_OK
-# Best ping: 0.151s
+# Best ping: 0.204s
 
-tg://proxy?server=proxy55.arixo.shop&port=443&secret=ee963f9388a1a09880c254b7bbf834c341617669746f2e7275
-tg://proxy?server=proxy56.arixo.shop&port=443&secret=eef6b692733d4b37587e7ac89a20c98437617669746f2e7275
+tg://proxy?server=proxy51.arixo.shop&port=443&secret=ee5213729eae4670d804f594044f81b831617669746f2e7275
