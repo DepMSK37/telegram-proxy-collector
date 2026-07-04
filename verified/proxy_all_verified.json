@@ -4,7 +4,7 @@
     "port": 443,
     "secret": "3QAAAAAAAAAAAAAAAAAAAAA=",
     "link": "tg://proxy?server=23.88.51.230&port=443&secret=3QAAAAAAAAAAAAAAAAAAAAA=",
-    "ping": 0.136,
+    "ping": 0.137,
     "region": "eu",
     "domain": "",
     "method": "TCP_OK"
@@ -14,7 +14,7 @@
     "port": 443,
     "secret": "eed77db43ee3721f0fcb40a4ff63b5cd276D656469612E737465616D706F77657265642E636F6D",
     "link": "tg://proxy?server=93.183.88.188&port=443&secret=eed77db43ee3721f0fcb40a4ff63b5cd276D656469612E737465616D706F77657265642E636F6D",
-    "ping": 0.157,
+    "ping": 0.158,
     "region": "eu",
     "domain": "}>r@c'media.steampowered.com",
     "method": "TCP_OK"
@@ -24,7 +24,7 @@
     "port": 443,
     "secret": "ee0000f00f0f775555fffffff5006e2e696d656469612e737465616d706f77657265642e636f6d",
     "link": "tg://proxy?server=syntax.ddnscdn.sbs.&port=443&secret=ee0000f00f0f775555fffffff5006e2e696d656469612e737465616d706f77657265642e636f6d",
-    "ping": 0.326,
+    "ping": 0.183,
     "region": "eu",
     "domain": "",
     "method": "TCP_OK"
