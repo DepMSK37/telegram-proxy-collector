@@ -1,10 +1,10 @@
 # Verified RU Proxies (5)
-# Updated: 2026-07-10 20:58:25 UTC
+# Updated: 2026-07-11 01:29:01 UTC
 # Method: TCP_OK
-# Best ping: 0.126s
+# Best ping: 0.144s
 
 tg://proxy?server=s1.24starsmarket.ru&port=443&secret=ee84e22723bf0f87e3838be933e7b91bd973312e323473746172736d61726b65742e7275
-tg://proxy?server=s3.24starsmarket.ru&port=443&secret=eed95970bd8584d336f1b923ab691fa43d73332e323473746172736d61726b65742e7275
-tg://proxy?server=s03.neo-trading.org&port=443&secret=eeaf794bcc20f70b1436b6b92b01b207e26d61676e69742e7275
-tg://proxy?server=s01.neo-trading.org&port=443&secret=ee7391242569590e01416101927d38b565646e732d73686f702e7275
 tg://proxy?server=s2.24starsmarket.ru&port=443&secret=ee01cf81bf6907123b8247f8eea3e4288b73322e323473746172736d61726b65742e7275
+tg://proxy?server=s3.24starsmarket.ru&port=443&secret=eed95970bd8584d336f1b923ab691fa43d73332e323473746172736d61726b65742e7275
+tg://proxy?server=s01.neo-trading.org&port=443&secret=ee7391242569590e01416101927d38b565646e732d73686f702e7275
+tg://proxy?server=s03.neo-trading.org&port=443&secret=eeaf794bcc20f70b1436b6b92b01b207e26d61676e69742e7275
