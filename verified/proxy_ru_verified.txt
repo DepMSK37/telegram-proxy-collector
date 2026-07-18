@@ -1,10 +1,10 @@
 # Verified RU Proxies (5)
-# Updated: 2026-07-18 12:48:10 UTC
+# Updated: 2026-07-18 16:42:45 UTC
 # Method: TCP_OK
-# Best ping: 0.161s
+# Best ping: 0.157s
 
 tg://proxy?server=s03.neo-trading.org&port=443&secret=eeaf794bcc20f70b1436b6b92b01b207e26d61676e69742e7275
+tg://proxy?server=s01.neo-trading.org&port=443&secret=ee7391242569590e01416101927d38b565646e732d73686f702e7275
 tg://proxy?server=ya.nftauctiontg.online&port=8448&secret=ee7a437a509561eb5e63b1caa44dad10a5706574726f766963682e7275
 tg://proxy?server=s02.neo-trading.org&port=443&secret=ee6ec9f7e082baf2397b450727ce78447e6f7a6f6e2e7275
 tg://proxy?server=vk.nftauctiontg.online&port=8448&secret=ee82dd6ba1475a9793a9613364fee70e2f706574726f766963682e7275
-tg://proxy?server=s01.neo-trading.org&port=443&secret=ee7391242569590e01416101927d38b565646e732d73686f702e7275
