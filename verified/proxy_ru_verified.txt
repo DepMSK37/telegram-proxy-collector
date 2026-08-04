@@ -1,8 +1,8 @@
 # Verified RU Proxies (3)
-# Updated: 2026-08-04 06:18:41 UTC
+# Updated: 2026-08-04 10:26:13 UTC
 # Method: TCP_OK
-# Best ping: 0.101s
+# Best ping: 0.138s
 
-tg://proxy?server=api.nowabst.net&port=853&secret=ee4b0955a40972e28dc3e76df92e9a3f1e766b2e636f6d
 tg://proxy?server=dev.nowabst.net&port=853&secret=ee54079943a5db4dc9163650c09dfc806d766b2e636f6d
+tg://proxy?server=api.nowabst.net&port=853&secret=ee4b0955a40972e28dc3e76df92e9a3f1e766b2e636f6d
 tg://proxy?server=ad6.fluxvpnguard.ru&port=443&secret=eeb471ae1aa2e8a185ed77a4d024dd3b7f6164362e666c757876706e67756172642e7275
