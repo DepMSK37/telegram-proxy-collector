@@ -1,7 +1,7 @@
 # Verified RU Proxies (2)
-# Updated: 2026-08-09 16:20:44 UTC
+# Updated: 2026-08-09 20:18:37 UTC
 # Method: TCP_OK
-# Best ping: 0.208s
+# Best ping: 0.132s
 
 tg://proxy?server=skein.chunkycorp.shop&port=443&secret=ee6a0333c1db3f8eaba5c76731a44203b6617669746f2e7275
 tg://proxy?server=proxy.lodkirmm.ru&port=8443&secret=ee16309abd572d284b309ef26bd7a3f685d0b7d0ba70726f78792e6c6f646b69726d6d2e7275
