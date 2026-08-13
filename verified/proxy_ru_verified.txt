@@ -1,6 +1,8 @@
-# Verified RU Proxies (1)
-# Updated: 2026-08-13 16:43:29 UTC
+# Verified RU Proxies (3)
+# Updated: 2026-08-13 20:29:16 UTC
 # Method: TCP_OK
-# Best ping: 0.217s
+# Best ping: 0.209s
 
+tg://proxy?server=media6.happtg.org&port=443&secret=ee7391242569590e01416101927d38b565646e732d73686f702e7275
 tg://proxy?server=media7.happtg.org&port=443&secret=ee6ec9f7e082baf2397b450727ce78447e6f7a6f6e2e7275
+tg://proxy?server=media8.happtg.org&port=443&secret=eeaf794bcc20f70b1436b6b92b01b207e26d61676e69742e7275
