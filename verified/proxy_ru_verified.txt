@@ -1,3 +1,6 @@
-# Verified RU Proxies (0)
-# Updated: 2026-08-16 04:24:35 UTC
+# Verified RU Proxies (1)
+# Updated: 2026-08-16 08:15:11 UTC
+# Method: TCP_OK
+# Best ping: 0.149s
 
+tg://proxy?server=starstg.neverspy.tech&port=443&secret=eee19ef78b188ec248d8187c787a46ccca647a656e2e7275
