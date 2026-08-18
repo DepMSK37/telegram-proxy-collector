@@ -1,7 +1,9 @@
-# Verified RU Proxies (2)
-# Updated: 2026-08-18 04:24:03 UTC
+# Verified RU Proxies (4)
+# Updated: 2026-08-18 08:22:25 UTC
 # Method: TCP_OK
-# Best ping: 0.2s
+# Best ping: 0.102s
 
-tg://proxy?server=api.nowabst.net&port=853&secret=ee4b0955a40972e28dc3e76df92e9a3f1e766b2e636f6d
 tg://proxy?server=dev.nowabst.net&port=853&secret=ee54079943a5db4dc9163650c09dfc806d766b2e636f6d
+tg://proxy?server=api.nowabst.net&port=853&secret=ee4b0955a40972e28dc3e76df92e9a3f1e766b2e636f6d
+tg://proxy?server=media7.happtg.org&port=443&secret=ee6ec9f7e082baf2397b450727ce78447e6f7a6f6e2e7275
+tg://proxy?server=media8.happtg.org&port=443&secret=eeaf794bcc20f70b1436b6b92b01b207e26d61676e69742e7275
