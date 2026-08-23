@@ -1,3 +1,7 @@
-# Verified RU Proxies (0)
-# Updated: 2026-08-23 08:16:43 UTC
+# Verified RU Proxies (2)
+# Updated: 2026-08-23 12:16:58 UTC
+# Method: TCP_OK
+# Best ping: 0.106s
 
+tg://proxy?server=185.84.156.90&port=4515&secret=eee9a4f23b1d768c04a8d7f39120ca5b6e6d61782e7275
+tg://proxy?server=my.silvpn.su&port=443&secret=eeea7a1978e167c0842ce31a16749038da6d792e6e657763646e2e7275
