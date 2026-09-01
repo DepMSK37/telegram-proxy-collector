@@ -1,7 +1,8 @@
-# Verified RU Proxies (2)
-# Updated: 2026-09-01 08:58:47 UTC
+# Verified RU Proxies (3)
+# Updated: 2026-09-01 15:42:47 UTC
 # Method: TCP_OK
-# Best ping: 0.208s
+# Best ping: 0.141s
 
-tg://proxy?server=nyakawai.shop&port=443&secret=eefddb26d5047ce1787ece232a57832391617669746f2e7275
+tg://proxy?server=cdn3.cdnwave.org&port=443&secret=ee8fc9c7632b344b1b76639c501ae7cfb5766b2e7275
 tg://proxy?server=x.shmelproxy.top&port=443&secret=eefc2612ff65a557fddf1d1b334395ef23617669746f2e7275
+tg://proxy?server=media2.happtg.org&port=443&secret=ee95aa916bd319beb312cc6ba9b2c5aef8766b2e7275
