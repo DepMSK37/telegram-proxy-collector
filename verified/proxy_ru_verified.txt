@@ -1,7 +1,7 @@
 # Verified RU Proxies (2)
-# Updated: 2026-09-02 19:03:25 UTC
+# Updated: 2026-09-02 22:06:36 UTC
 # Method: TCP_OK
-# Best ping: 0.158s
+# Best ping: 0.209s
 
-tg://proxy?server=proxtstar.live&port=443&secret=eed21e15e0d7df3d811a11e2accff34eec617669746f2e7275
-tg://proxy?server=x.shmelproxy.top&port=443&secret=eefc2612ff65a557fddf1d1b334395ef23617669746f2e7275
+tg://proxy?server=kostyanchekloh.lol&port=443&secret=ee3f72634c46d320aaa30d8bb2682e9b49617669746f2e7275
+tg://proxy?server=lazeyka-2-5.getvelora.space&port=443&secret=ee32ee4962951c5b2bb70bc767751761a36f7a6f6e2e7275
