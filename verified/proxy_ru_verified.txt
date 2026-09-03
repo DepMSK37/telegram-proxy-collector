@@ -1,7 +1,3 @@
-# Verified RU Proxies (2)
-# Updated: 2026-09-03 15:25:26 UTC
-# Method: TCP_OK
-# Best ping: 0.415s
+# Verified RU Proxies (0)
+# Updated: 2026-09-03 18:57:49 UTC
 
-tg://proxy?server=topproxt.asia&port=443&secret=eebbb00c5d6d8a742b1a762499eb7d4912617669746f2e7275
-tg://proxy?server=lazeyka-2-5.getvelora.space&port=443&secret=ee32ee4962951c5b2bb70bc767751761a36f7a6f6e2e7275
