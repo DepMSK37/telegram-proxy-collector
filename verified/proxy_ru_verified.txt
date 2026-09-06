@@ -1,7 +1,7 @@
 # Verified RU Proxies (2)
-# Updated: 2026-09-06 01:46:16 UTC
+# Updated: 2026-09-06 08:11:26 UTC
 # Method: TCP_OK
-# Best ping: 0.286s
+# Best ping: 0.266s
 
 tg://proxy?server=x.shmelproxy.top&port=443&secret=eefc2612ff65a557fddf1d1b334395ef237975672d6c696e6b2e7275
 tg://proxy?server=s8.assetflux.org&port=443&secret=eeaf794bcc20f70b1436b6b92b01b207e26d61676e69742e7275
