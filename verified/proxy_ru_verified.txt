@@ -1,3 +1,7 @@
-# Verified RU Proxies (0)
-# Updated: 2026-09-07 08:43:11 UTC
+# Verified RU Proxies (2)
+# Updated: 2026-09-07 16:48:08 UTC
+# Method: TCP_OK
+# Best ping: 0.37s
 
+tg://proxy?server=monday.mtproto.baby&port=443&secret=eec3360565ae8175fba64ad6719232fa387374726d2e79616e6465782e6e6574
+tg://proxy?server=x.shmelproxy.top&port=443&secret=eefc2612ff65a557fddf1d1b334395ef237975672d6c696e6b2e7275
