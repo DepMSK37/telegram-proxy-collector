@@ -1,9 +1,8 @@
-# Verified RU Proxies (4)
-# Updated: 2026-09-30 23:18:30 UTC
+# Verified RU Proxies (3)
+# Updated: 2026-10-01 02:57:18 UTC
 # Method: TCP_OK
-# Best ping: 0.194s
+# Best ping: 0.127s
 
-tg://proxy?server=cdn1.cdntide.org&port=443&secret=eeebfc2fcebe840e19f29cf87fadfaad78686f66662e7275
 tg://proxy?server=kostyanchekloh.lol&port=443&secret=ee3f72634c46d320aaa30d8bb2682e9b497975672d6c696e6b2e7275
-tg://proxy?server=topproxt.asia&port=443&secret=eebbb00c5d6d8a742b1a762499eb7d4912617669746f2e7275
+tg://proxy?server=cdn1.cdntide.org&port=443&secret=eeebfc2fcebe840e19f29cf87fadfaad78686f66662e7275
 tg://proxy?server=x.shmelproxy.top&port=443&secret=eefc2612ff65a557fddf1d1b334395ef237975672d6c696e6b2e7275
