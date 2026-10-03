@@ -1,6 +1,6 @@
 # Verified RU Proxies (1)
-# Updated: 2026-10-02 23:23:52 UTC
+# Updated: 2026-10-03 02:45:32 UTC
 # Method: TCP_OK
-# Best ping: 0.305s
+# Best ping: 0.214s
 
 tg://proxy?server=kostyanchekloh.lol&port=443&secret=ee3f72634c46d320aaa30d8bb2682e9b497975672d6c696e6b2e7275
