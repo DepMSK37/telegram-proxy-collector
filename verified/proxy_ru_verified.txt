@@ -1,6 +1,7 @@
-# Verified RU Proxies (1)
-# Updated: 2026-10-14 09:06:47 UTC
+# Verified RU Proxies (2)
+# Updated: 2026-10-14 16:07:15 UTC
 # Method: TCP_OK
 # Best ping: 0.172s
 
-tg://proxy?server=x.shmelproxy.top&port=443&secret=eefc2612ff65a557fddf1d1b334395ef237975672d6c696e6b2e7275
+tg://proxy?server=a03.lovely.lat&port=443&secret=ee68d6a83140657a1c7bf8e64d98ce9432786170692e6f7a6f6e2e7275
+tg://proxy?server=kostyanchekloh.lol&port=443&secret=ee3f72634c46d320aaa30d8bb2682e9b497975672d6c696e6b2e7275
