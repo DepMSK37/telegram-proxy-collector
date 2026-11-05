@@ -1,7 +1,7 @@
 # Verified RU Proxies (3)
-# Updated: 2026-11-05 11:42:03 UTC
+# Updated: 2026-11-05 19:12:01 UTC
 # Method: TCP_OK
-# Best ping: 0.193s
+# Best ping: 0.121s
 
 tg://proxy?server=zolo25.quillmarsh.xyz&port=8443&secret=ee24c8636b7e946779a023ee708370719b706574726f766963682e7275
 tg://proxy?server=lora56.tidelark.cc&port=8443&secret=ee899032aa75159cc1d735f15e7a0e3a6e706574726f766963682e7275
