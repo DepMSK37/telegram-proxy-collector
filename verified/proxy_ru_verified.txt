@@ -1,7 +1,8 @@
-# Verified RU Proxies (2)
-# Updated: 2026-11-08 23:15:58 UTC
+# Verified RU Proxies (3)
+# Updated: 2026-11-09 03:31:23 UTC
 # Method: TCP_OK
-# Best ping: 0.157s
+# Best ping: 0.123s
 
-tg://proxy?server=de-p1.h1cloud.net&port=25153&secret=ee0c63bf0d9b4a6cb5455e677bad52bf8b6d61782e7275
 tg://proxy?server=shared4.ddproxy.xyz&port=443&secret=eedddddddddddddddddddddddddddddddd6d2e6265626f6f2e7275
+tg://proxy?server=de-p1.h1cloud.net&port=25153&secret=ee0c63bf0d9b4a6cb5455e677bad52bf8b6d61782e7275
+tg://proxy?server=tghost.accesscam.org&port=7997&secret=eef8ceedada37935dbe4db815b0424a846626979736b32322e7275
