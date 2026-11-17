@@ -1,7 +1,9 @@
-# Verified RU Proxies (2)
-# Updated: 2026-11-16 23:53:53 UTC
+# Verified RU Proxies (4)
+# Updated: 2026-11-17 05:36:43 UTC
 # Method: TCP_OK
-# Best ping: 0.158s
+# Best ping: 0.152s
 
-tg://proxy?server=skymoon.heronglade.space&port=8443&secret=ee2b60d9fbfb7978842047eb90c50862a0786170692e6f7a6f6e2e7275
 tg://proxy?server=birchshore.heronglade.space&port=443&secret=ee2b60d9fbfb7978842047eb90c50862a0706574726f766963682e7275
+tg://proxy?server=skymoon.heronglade.space&port=8443&secret=ee2b60d9fbfb7978842047eb90c50862a0786170692e6f7a6f6e2e7275
+tg://proxy?server=proxtstar.live&port=443&secret=eeec15a78c3842e866c302c8526175a68c7975672d6c696e6b2e7275
+tg://proxy?server=freeconnect.lol&port=443&secret=eeec15a78c3842e866c302c8526175a68c7975672d6c696e6b2e7275
