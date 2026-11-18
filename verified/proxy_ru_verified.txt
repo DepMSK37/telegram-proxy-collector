@@ -1,16 +1,16 @@
 # Verified RU Proxies (11)
-# Updated: 2026-11-17 17:11:07 UTC
+# Updated: 2026-11-18 01:56:31 UTC
 # Method: TCP_OK
-# Best ping: 0.164s
+# Best ping: 0.18s
 
 tg://proxy?server=gade59.kelpmoor.xyz&port=443&secret=eef17c22a56cac8bd46d12b91f8f9e102f6f7a6f6e2e7275
-tg://proxy?server=birchshore.heronglade.space&port=443&secret=ee2b60d9fbfb7978842047eb90c50862a0706574726f766963682e7275
-tg://proxy?server=skymoon.heronglade.space&port=8443&secret=ee2b60d9fbfb7978842047eb90c50862a0786170692e6f7a6f6e2e7275
+tg://proxy?server=aurora.heronglade.space&port=8443&secret=eedac1697485fe37f9c1435848f8ec2ff5706574726f766963682e7275
 tg://proxy?server=stormlaurel.heronglade.space&port=443&secret=eedac1697485fe37f9c1435848f8ec2ff5786170692e6f7a6f6e2e7275
+tg://proxy?server=willowtulip.heronglade.space&port=8443&secret=eedac1697485fe37f9c1435848f8ec2ff5706574726f766963682e7275
+tg://proxy?server=ultraproxy.shop&port=443&secret=eeec15a78c3842e866c302c8526175a68c7975672d6c696e6b2e7275
+tg://proxy?server=toga43.sorrelbay.xyz&port=8443&secret=eef17c22a56cac8bd46d12b91f8f9e102f62726f777365722e79616e6465782e7275
 tg://proxy?server=pomi46.kelpmoor.xyz&port=8443&secret=eef17c22a56cac8bd46d12b91f8f9e102f62726f777365722e79616e6465782e7275
 tg://proxy?server=gakany71.ashwren.xyz&port=443&secret=eef17c22a56cac8bd46d12b91f8f9e102f786170692e6f7a6f6e2e7275
-tg://proxy?server=willowtulip.heronglade.space&port=8443&secret=eedac1697485fe37f9c1435848f8ec2ff5706574726f766963682e7275
-tg://proxy?server=toga43.sorrelbay.xyz&port=8443&secret=eef17c22a56cac8bd46d12b91f8f9e102f62726f777365722e79616e6465782e7275
+tg://proxy?server=nyakawai.shop&port=443&secret=eeec15a78c3842e866c302c8526175a68c7975672d6c696e6b2e7275
+tg://proxy?server=galaxy.heronglade.space&port=443&secret=eedac1697485fe37f9c1435848f8ec2ff5786170692e6f7a6f6e2e7275
 tg://proxy?server=freeconnect.lol&port=443&secret=eeec15a78c3842e866c302c8526175a68c7975672d6c696e6b2e7275
-tg://proxy?server=ultraproxy.shop&port=443&secret=eeec15a78c3842e866c302c8526175a68c7975672d6c696e6b2e7275
-tg://proxy?server=proxtstar.live&port=443&secret=eeec15a78c3842e866c302c8526175a68c7975672d6c696e6b2e7275
